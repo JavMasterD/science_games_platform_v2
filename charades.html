@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة التمثيل الصامت</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="back-nav">
+        <button onclick="location.href='index.html'">⬅️ العودة للرئيسية</button>
+    </div>
+
+    <h1>🎭 لعبة التمثيل الصامت 🎭</h1>
+
+    <div class="system-panel">
+        <div class="team-card" id="card-teamA" onclick="selectTeam('teamA')">
+            <div class="team-marker marker-a"></div>
+            <h3>الفريق (أ)</h3>
+            <div class="score" id="scoreA">0</div>
+            <div class="rounds-won">الجولات: <span id="roundsA">0</span></div>
+            <span class="status-text">اضغط للتفعيل</span>
+        </div>
+
+        <div class="ai-control">
+            <button id="btn-reveal" onclick="revealWord()">كشف الكلمة للمعلم فقط 👁️</button>
+            <div class="teacher-only-section" id="teacher-section">
+                <div class="secret-word-container">
+                    <span class="secret-label">الكلمة السرية (للمعلم فقط):</span>
+                    <div class="secret-word" id="secret-word">اضغط لكشف الكلمة</div>
+                </div>
+            </div>
+            <div class="question-display" id="question-box">اختر الفريق أولاً، ثم اضغط لكشف الكلمة...</div>
+            <div class="action-buttons" id="action-btns" style="display: none;">
+                <button class="btn-success" onclick="verifyAnswer(true)">إجابة صحيحة ✅</button>
+                <button class="btn-fail" onclick="verifyAnswer(false)">إجابة خاطئة ❌</button>
+                <button class="btn-skip" onclick="skipWord()">تخطي الكلمة ⏭️</button>
+            </div>
+        </div>
+
+        <div class="team-card" id="card-teamB" onclick="selectTeam('teamB')">
+            <div class="team-marker marker-b"></div>
+            <h3>الفريق (ب)</h3>
+            <div class="score" id="scoreB">0</div>
+            <div class="rounds-won">الجولات: <span id="roundsB">0</span></div>
+            <span class="status-text">اضغط للتفعيل</span>
+        </div>
+    </div>
+
+    <div class="charades-info">
+        <div class="info-card">
+            <h3>📋 طريقة اللعب:</h3>
+            <ul>
+                <li>المعلم يضغط "كشف الكلمة للمعلم فقط"</li>
+                <li>يظهر اسم الفيلم/الكلمة للمعلم فقط</li>
+                <li>طالب من الفريق يمثل الكلمة صامتاً</li>
+                <li>الفريق الآخر يحاول تخمين الكلمة</li>
+                <li>المعلم يحدد الإجابة صحيحة/خاطئة</li>
+            </ul>
+        </div>
+    </div>
+
+    <audio id="sound-success" src="assets/sounds/success.mp3" preload="auto"></audio>
+    <audio id="sound-fail" src="assets/sounds/fail.mp3" preload="auto"></audio>
+    <audio id="sound-click" src="assets/sounds/click.mp3" preload="auto"></audio>
+
+    <script src="js/ai-handler.js"></script>
+    <script src="js/charades-logic.js"></script>
+</body>
+</html>

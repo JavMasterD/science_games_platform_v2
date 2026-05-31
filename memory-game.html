@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة ذاكرة كيفي العلمية</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="back-nav">
+        <button onclick="location.href='index.html'">⬅️ العودة للرئيسية</button>
+    </div>
+
+    <h1>🧠 لعبة ذاكرة كيفي الذكية 🔬</h1>
+
+    <div class="system-panel">
+        <div class="team-card" id="card-teamA" onclick="selectTeam('teamA')">
+            <div class="team-marker marker-a"></div>
+            <h3>الفريق (أ)</h3>
+            <div class="score" id="scoreA">0</div>
+            <span class="status-text">اضغط للتفعيل</span>
+        </div>
+
+        <div class="ai-control">
+            <button id="btn-ai" onclick="startTeacherQuestion()">بدء سؤال المعلم الشفهي 📢</button>
+            <div class="question-display" id="question-box">اختر الفريق أولاً، ثم اضغط لبدء السؤال الشفهي...</div>
+            <div class="action-buttons" id="action-btns" style="display: none;">
+                <button class="btn-success" onclick="verifyAnswer(true)">إجابة صحيحة (تفعيل اللعب) ✅</button>
+                <button class="btn-fail" onclick="verifyAnswer(false)">إجابة خاطئة (تخطي الدور) ❌</button>
+            </div>
+        </div>
+
+        <div class="team-card" id="card-teamB" onclick="selectTeam('teamB')">
+            <div class="team-marker marker-b"></div>
+            <h3>الفريق (ب)</h3>
+            <div class="score" id="scoreB">0</div>
+            <span class="status-text">اضغط للتفعيل</span>
+        </div>
+    </div>
+
+    <div class="grid-container container-disabled" id="game-grid"></div>
+
+    <audio id="sound-success" src="assets/sounds/success.mp3" preload="auto"></audio>
+    <audio id="sound-fail" src="assets/sounds/fail.mp3" preload="auto"></audio>
+    <audio id="sound-click" src="assets/sounds/click.mp3" preload="auto"></audio>
+
+    <script src="js/ai-handler.js"></script>
+    <script src="js/memory-logic.js"></script>
+</body>
+</html>
